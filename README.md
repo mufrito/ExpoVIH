@@ -1,5 +1,5 @@
 # ExpoVIH
-## creado por el equipo 6 (Ejem, Samuel Díaz programos)
+## creado por el equipo 6 (Ejem, Samuel Díaz programo)
 - No sustituimos profecionales.
 - Solo somos estudiantes.
 - el css fue sacado de una biblioteca de estilos.
