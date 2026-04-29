@@ -1,171 +1,207 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>VIH/SIDA | Presentación</title>
-  <link rel="stylesheet" href="Estilos.css">
+<meta charset="UTF-8">
+<title>VIH/SIDA | Presentación</title>
+<link rel="stylesheet" href="Estilos.css">
 
-  <style>
-    .slides{
-      height:100vh;
-      overflow-y:scroll;
-      scroll-snap-type:y mandatory;
-      scroll-behavior:smooth;
-    }
+<style>
+.slides{
+  height:100vh;
+  overflow-y:scroll;
+  scroll-snap-type:y mandatory;
+  scroll-behavior:smooth;
+}
 
-    .slide{
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      scroll-snap-align:start;
-      padding:2rem;
-      opacity:0;
-      transform:translateY(40px);
-      transition:.7s ease;
-      position:relative;
-    }
+/* BASE */
+.slide{
+  height:100vh;
+  scroll-snap-align:start;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:3rem;
+  opacity:0;
+  transform:translateY(60px);
+  transition:.8s ease;
+}
+.slide.active{
+  opacity:1;
+  transform:translateY(0);
+}
 
-    .slide.active{
-      opacity:1;
-      transform:translateY(0);
-    }
+/* TEXTO GRANDE */
+h1{font-size:clamp(3rem,8vw,5rem)}
+h2{font-size:clamp(2.2rem,6vw,3.5rem)}
+p,li{font-size:1.3rem; line-height:1.6}
 
-    .slide::before{
-      content:"";
-      position:absolute;
-      inset:0;
-      z-index:-1;
-      background:
-        radial-gradient(circle at top left, rgba(29,95,167,.2), transparent 40%),
-        radial-gradient(circle at bottom right, rgba(216,74,92,.2), transparent 40%),
-        linear-gradient(#f9fbff,#eef4fb);
-    }
+/* CAJA */
+.box{
+  max-width:1000px;
+  background:rgba(255,255,255,.85);
+  padding:2.5rem;
+  border-radius:24px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(10px);
+}
 
-    .slide-box{
-      background:rgba(255,255,255,.9);
-      padding:2rem;
-      border-radius:20px;
-      box-shadow:var(--shadow);
-      border:1px solid var(--line);
-      max-width:900px;
-    }
+/* SLIDE 1 */
+.s1{
+  background:linear-gradient(135deg,#1d5fa7,#d84a5c);
+  color:#fff;
+}
 
-    .slide ul{text-align:left}
+/* SLIDE 2 */
+.s2{
+  background:radial-gradient(circle,#eef4fb,#dcebff);
+}
 
-    .nav-slides{
-      position:fixed;
-      right:20px;
-      top:50%;
-      transform:translateY(-50%);
-      display:flex;
-      flex-direction:column;
-      gap:.5rem;
-    }
+/* SLIDE 3 */
+.s3{
+  background:linear-gradient(180deg,#fff,#ffe5ea);
+}
 
-    .nav-slides a{
-      width:12px;
-      height:12px;
-      border-radius:50%;
-      background:var(--muted);
-    }
+/* SLIDE 4 */
+.s4{
+  background:linear-gradient(135deg,#eef4fb,#ffffff);
+}
 
-    .nav-slides a.active{
-      background:var(--blue);
-      transform:scale(1.3);
-    }
-  </style>
+/* SLIDE 5 */
+.s5{
+  background:linear-gradient(135deg,#dcebff,#ffe5ea);
+}
+
+/* SLIDE 6 */
+.s6{
+  background:#0f172a;
+  color:#fff;
+}
+
+/* SLIDE 7 */
+.s7{
+  background:linear-gradient(135deg,#ffe5ea,#fff);
+}
+
+/* SLIDE 8 */
+.s8{
+  background:linear-gradient(135deg,#e8fff3,#ffffff);
+}
+
+/* GRID PARA VARIEDAD */
+.grid{
+  display:grid;
+  gap:1rem;
+}
+.two{grid-template-columns:1fr 1fr}
+
+/* NAV */
+.nav-slides{
+  position:fixed;
+  right:20px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+}
+.nav-slides a{
+  width:14px;height:14px;border-radius:50%;
+  background:#999;
+}
+.nav-slides a.active{
+  background:#1d5fa7;
+  transform:scale(1.4);
+}
+</style>
 </head>
 
 <body>
 
 <div class="slides">
 
-  <section class="slide active" id="s1">
-    <div class="slide-box">
-      <h1>Información sobre el virus de inmuno deficiencia humana</h1>
-      <p>VIH/SIDA</p>
-    </div>
-  </section>
+<section class="slide s1 active" id="s1">
+  <div class="box">
+    <h1>Información sobre el virus de inmuno deficiencia humana</h1>
+    <p>VIH/SIDA</p>
+  </div>
+</section>
 
-  <section class="slide" id="s2">
-    <div class="slide-box">
-      <h2>Estigma social</h2>
-      <ul>
-        <li>El estigma se refiere a las actitudes negativas y suposiciones sobre las personas que tienen el VIH.</li>
-        <li>Que solo los homosexuales o trabajadores sexuales tienen SIDA/VIH.</li>
-        <li>Las formas de contagiarse son muy variadas, pero como creen que es solo por el coito no se protegen.</li>
-        <li>El bullying y el rechazo que reciben las personas contagiadas del SIDA/VIH es muy fuerte para ellos.</li>
-        <li>Las personas contagiadas de SIDA/VIH al tener miedo que alguien mas se entere prefieren guardarlo y así contagian a mas personas.</li>
-      </ul>
-    </div>
-  </section>
+<section class="slide s2" id="s2">
+  <div class="box">
+    <h2>Estigma social</h2>
+    <ul>
+      <li>El estigma se refiere a las actitudes negativas y suposiciones sobre las personas que tienen el VIH.</li>
+      <li>Que solo los homosexuales o trabajadores sexuales tienen SIDA/VIH.</li>
+      <li>Las formas de contagiarse son muy variadas, pero como creen que es solo por el coito no se protegen.</li>
+      <li>El bullying y el rechazo que reciben las personas contagiadas del SIDA/VIH es muy fuerte para ellos.</li>
+      <li>Las personas contagiadas de SIDA/VIH al tener miedo que alguien mas se entere prefieren guardarlo y así contagian a mas personas.</li>
+    </ul>
+  </div>
+</section>
 
-  <section class="slide" id="s3">
-    <div class="slide-box">
-      <h2>Etapas del VIH</h2>
-      <ul>
-        <li>Etapa 1: En la primera etapa, dentro de la persona infectada empiezan a reproducirse el virus, dando como síntomas fiebre, dolor de garganta, fatiga, dolor muscular.</li>
-        <li>Etapa 2: En la segunda etapa el VIH deja de reproducirse tan rápido en el cuerpo y empieza una reproducción mas lenta, ya no hay síntomas de la enfermedad pero sigue activa.</li>
-        <li>Etapa 3: En esta etapa ya no hay VIH, pasa a ser SIDA y la esperanza de vida ronda los 3 años, el SIDA ataca al sistema inmune, dañándolo gravemente.</li>
-      </ul>
-    </div>
-  </section>
+<section class="slide s3" id="s3">
+  <div class="box">
+    <h2>Etapas del VIH</h2>
+    <ul>
+      <li>Etapa 1: En la primera etapa, dentro de la persona infectada empiezan a reproducirse el virus, dando como síntomas fiebre, dolor de garganta, fatiga, dolor muscular.</li>
+      <li>Etapa 2: En la segunda etapa el VIH deja de reproducirse tan rápido en el cuerpo y empieza una reproducción mas lenta, ya no hay síntomas de la enfermedad pero sigue activa.</li>
+      <li>Etapa 3: En esta etapa ya no hay VIH, pasa a ser SIDA y la esperanza de vida ronda los 3 años, el SIDA ataca al sistema inmune, dañándolo gravemente.</li>
+    </ul>
+  </div>
+</section>
 
-  <section class="slide" id="s4">
-    <div class="slide-box">
-      <h2>Formas de Contagiarse</h2>
-      <ul>
-        <li>Teniendo relaciones con una persona contagiada de VIH.</li>
-        <li>Una madre infectada con el virus y a la vez con un bebé en el vientre.</li>
-        <li>Reutilizar instrumentos médicos puede contagiarte del VIH si no fuero esterilizados o desechados, incluyendo transfusiones de sangre.</li>
-      </ul>
-    </div>
-  </section>
+<section class="slide s4" id="s4">
+  <div class="box">
+    <h2>Formas de Contagiarse</h2>
+    <ul>
+      <li>Teniendo relaciones con una persona contagiada de VIH.</li>
+      <li>Una madre infectada con el virus y a la vez con un bebé en el vientre.</li>
+      <li>Reutilizar instrumentos médicos puede contagiarte del VIH si no fuero esterilizados o desechados, incluyendo transfusiones de sangre.</li>
+    </ul>
+  </div>
+</section>
 
-  <section class="slide" id="s5">
-    <div class="slide-box">
-      <h2>Formas de protegerse del VIH</h2>
-      <ul>
-        <li>Usar condón, barrera de látex o estar medicado con prEP.</li>
-        <li>Revisar que el establecimiento medico haga un debido procedimiento de desinfección y desecho de residuos peligrosos.</li>
-        <li>Para una persona contagiada el mejor tratamiento si tienes relaciones sexuales es el TAR.</li>
-      </ul>
-    </div>
-  </section>
+<section class="slide s5" id="s5">
+  <div class="box">
+    <h2>Formas de protegerse del VIH</h2>
+    <ul>
+      <li>Usar condón, barrera de látex o estar medicado con prEP.</li>
+      <li>Revisar que el establecimiento medico haga un debido procedimiento de desinfección y desecho de residuos peligrosos.</li>
+      <li>Para una persona contagiada el mejor tratamiento si tienes relaciones sexuales es el TAR.</li>
+    </ul>
+  </div>
+</section>
 
-  <section class="slide" id="s6">
-    <div class="slide-box">
-      <h2>Medicamentos del VIH</h2>
-      <p><strong>prEP:</strong> La PrEP (Profilaxis Pre-Exposición) es un medicamento diario o inyectable de alta eficacia que utilizan las personas VIH negativas para prevenir la infección por VIH a través de relaciones sexuales o uso de drogas inyectables. Reduce el riesgo de contraer el virus en aproximadamente un 99% cuando se toma según las indicaciones.</p>
-      <p><strong>TAR:</strong> El TAR (Tratamiento Antirretroviral) es el uso conjunto de medicamentos diarios para tratar la infección por VIH, recomendado para todas las personas seropositivas. Aunque no cura el virus, reduce la carga viral a niveles indetectables, lo que detiene el daño al sistema inmunitario, previene el SIDA y evita la transmisión sexual.</p>
-      <p><strong>Tivicay:</strong> Tivicay es un medicamento antirretroviral indicado para tratar la infección por el VIH en combinación con otros fármacos en adultos, adolescentes y niños. Contiene el principio activo dolutegravir sódico, un inhibidor de la integrasa (INI) que reduce la carga viral y aumenta las células CD4.</p>
-    </div>
-  </section>
+<section class="slide s6" id="s6">
+  <div class="box">
+    <h2>Medicamentos del VIH</h2>
+    <p><strong>prEP:</strong> La PrEP (Profilaxis Pre-Exposición)...</p>
+    <p><strong>TAR:</strong> El TAR (Tratamiento Antirretroviral)...</p>
+    <p><strong>Tivicay:</strong> Tivicay es un medicamento...</p>
+  </div>
+</section>
 
-  <section class="slide" id="s7">
-    <div class="slide-box">
-      <h2>Mentiras sobre el VIH</h2>
-      <ul>
-        <li>Que se puede contagiar por saliva.</li>
-        <li>Solo los gays tienen VIH/SIDA.</li>
-        <li>No tiene tratamiento y te vas a morir si lo contraes.</li>
-      </ul>
-    </div>
-  </section>
+<section class="slide s7" id="s7">
+  <div class="box">
+    <h2>Mentiras sobre el VIH</h2>
+    <ul>
+      <li>Que se puede contagiar por saliva.</li>
+      <li>Solo los gays tienen VIH/SIDA.</li>
+      <li>No tiene tratamiento y te vas a morir si lo contraes.</li>
+    </ul>
+  </div>
+</section>
 
-  <section class="slide" id="s8">
-    <div class="slide-box">
-      <h2>Verdades sobre el VIH</h2>
-      <ul>
-        <li>La leche materna puede contagiar.</li>
-        <li>Las personas con tratamiento como el TAR aunque tengan una carga viral en su cuerpo no pueden infectar a otras.</li>
-        <li>Con tratamiento puedes tener una vida bastante sana.</li>
-      </ul>
-    </div>
-  </section>
+<section class="slide s8" id="s8">
+  <div class="box">
+    <h2>Verdades sobre el VIH</h2>
+    <ul>
+      <li>La leche materna puede contagiar.</li>
+      <li>Las personas con tratamiento como el TAR aunque tengan una carga viral en su cuerpo no pueden infectar a otras.</li>
+      <li>Con tratamiento puedes tener una vida bastante sana.</li>
+    </ul>
+  </div>
+</section>
 
 </div>
 
@@ -181,54 +217,42 @@
 </div>
 
 <script>
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".nav-slides a");
-const container = document.querySelector(".slides");
+const slides=document.querySelectorAll(".slide");
+const dots=document.querySelectorAll(".nav-slides a");
+let current=0;
 
-let current = 0;
-
-function goToSlide(index){
-  if(index < 0) index = 0;
-  if(index >= slides.length) index = slides.length - 1;
-  current = index;
-  slides[index].scrollIntoView({behavior:"smooth"});
+function goToSlide(i){
+ if(i<0)i=0;
+ if(i>=slides.length)i=slides.length-1;
+ current=i;
+ slides[i].scrollIntoView({behavior:"smooth"});
 }
 
-function activateSlide(){
-  slides.forEach((slide,i)=>{
-    const rect = slide.getBoundingClientRect();
-    if(rect.top >= 0 && rect.top < window.innerHeight/2){
-      current = i;
-    }
-  });
-
-  slides.forEach(s=>s.classList.remove("active"));
-  dots.forEach(d=>d.classList.remove("active"));
-
-  slides[current].classList.add("active");
-  dots[current].classList.add("active");
+function activate(){
+ slides.forEach((s,i)=>{
+  const r=s.getBoundingClientRect();
+  if(r.top>=0 && r.top<window.innerHeight/2) current=i;
+ });
+ slides.forEach(s=>s.classList.remove("active"));
+ dots.forEach(d=>d.classList.remove("active"));
+ slides[current].classList.add("active");
+ dots[current].classList.add("active");
 }
 
-container.addEventListener("scroll",activateSlide);
+document.querySelector(".slides").addEventListener("scroll",activate);
 
-document.addEventListener("keydown",(e)=>{
-  if(e.key==="ArrowRight"||e.key==="ArrowDown"){
-    goToSlide(current+1);
-  }
-  if(e.key==="ArrowLeft"||e.key==="ArrowUp"){
-    goToSlide(current-1);
-  }
+document.addEventListener("keydown",e=>{
+ if(e.key==="ArrowRight"||e.key==="ArrowDown") goToSlide(current+1);
+ if(e.key==="ArrowLeft"||e.key==="ArrowUp") goToSlide(current-1);
 });
 
-function enterFullscreen(){
-  const el=document.documentElement;
-  if(el.requestFullscreen){
-    el.requestFullscreen().catch(()=>{});
-  }
+function fs(){
+ if(document.documentElement.requestFullscreen){
+  document.documentElement.requestFullscreen().catch(()=>{});
+ }
 }
-
-window.addEventListener("load",enterFullscreen);
-document.addEventListener("click",enterFullscreen,{once:true});
+window.addEventListener("load",fs);
+document.addEventListener("click",fs,{once:true});
 </script>
 
 </body>
