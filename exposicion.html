@@ -214,24 +214,58 @@
 <script>
   const slides = document.querySelectorAll(".slide");
   const dots = document.querySelectorAll(".nav-slides a");
+  const container = document.querySelector(".slides");
+
+  let current = 0;
+
+  function goToSlide(index){
+    if(index < 0) index = 0;
+    if(index >= slides.length) index = slides.length - 1;
+
+    current = index;
+    slides[index].scrollIntoView({behavior:"smooth"});
+  }
 
   function activateSlide() {
-    let index = 0;
     slides.forEach((slide, i) => {
       const rect = slide.getBoundingClientRect();
       if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
-        index = i;
+        current = i;
       }
     });
 
     slides.forEach(s => s.classList.remove("active"));
     dots.forEach(d => d.classList.remove("active"));
 
-    slides[index].classList.add("active");
-    dots[index].classList.add("active");
+    slides[current].classList.add("active");
+    dots[current].classList.add("active");
   }
 
-  document.querySelector(".slides").addEventListener("scroll", activateSlide);
+  container.addEventListener("scroll", activateSlide);
+
+  // 🎮 CONTROL CON TECLADO
+  document.addEventListener("keydown", (e) => {
+    if(e.key === "ArrowDown" || e.key === "ArrowRight"){
+      goToSlide(current + 1);
+    }
+    if(e.key === "ArrowUp" || e.key === "ArrowLeft"){
+      goToSlide(current - 1);
+    }
+  });
+
+  // 🖱️ FULLSCREEN (intento automático)
+  function enterFullscreen(){
+    const el = document.documentElement;
+    if(el.requestFullscreen){
+      el.requestFullscreen().catch(()=>{});
+    }
+  }
+
+  // intento al cargar (puede fallar por seguridad)
+  window.addEventListener("load", enterFullscreen);
+
+  // funciona seguro al primer clic
+  document.addEventListener("click", enterFullscreen, {once:true});
 </script>
 
 </body>
